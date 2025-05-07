@@ -80,10 +80,13 @@
         
         // Handle form submission
         String newTask = request.getParameter("task");
-        if (newTask != null && !newTask.trim().isEmpty()) {
-            tasks.add(newTask.trim());
-            session.setAttribute("tasks", tasks);
-        }
+if (newTask != null && !newTask.trim().isEmpty()) {
+    tasks.add(newTask.trim());
+    session.setAttribute("tasks", tasks);
+    // Redirect after processing the form
+    response.sendRedirect("index.jsp");
+    return; // Important to stop further processing
+}
         
         // Handle clear tasks
         String clearTasks = request.getParameter("clear");
