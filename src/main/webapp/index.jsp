@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,6 +66,29 @@
             color: #777;
             padding: 20px;
         }
+        .completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .task-text {
+            flex: 1;
+        }
+        .task-actions {
+            display: flex;
+            align-items: center;
+        }
+        .toggle-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .toggle-btn:hover {
+            background-color: #0b7dda;
+        }
     </style>
 </head>
 <body>
@@ -72,7 +97,7 @@
         
         <%
         // Initialize the tasks list if it doesn't exist
-        List<String> tasks = (List<String>) session.getAttribute("tasks");
+        List<Map<String, Object>> tasks = (List<Map<String, Object>>) session.getAttribute("tasks");
         if (tasks == null) {
             tasks = new ArrayList<>();
             session.setAttribute("tasks", tasks);
@@ -80,19 +105,42 @@
         
         // Handle form submission
         String newTask = request.getParameter("task");
-if (newTask != null && !newTask.trim().isEmpty()) {
-    tasks.add(newTask.trim());
-    session.setAttribute("tasks", tasks);
-    // Redirect after processing the form
-    response.sendRedirect("index.jsp");
-    return; // Important to stop further processing
-}
+        if (newTask != null && !newTask.trim().isEmpty()) {
+            Map<String, Object> task = new HashMap<>();
+            task.put("text", newTask.trim());
+            task.put("completed", false);
+            tasks.add(task);
+            session.setAttribute("tasks", tasks);
+            // Redirect after processing to prevent form resubmission
+            response.sendRedirect("index.jsp");
+            return;
+        }
+        
+        // Handle task toggle
+        String toggleIndex = request.getParameter("toggle");
+        if (toggleIndex != null && !toggleIndex.isEmpty()) {
+            try {
+                int index = Integer.parseInt(toggleIndex);
+                if (index >= 0 && index < tasks.size()) {
+                    Map<String, Object> task = tasks.get(index);
+                    task.put("completed", !(Boolean)task.get("completed"));
+                }
+            } catch (NumberFormatException e) {
+                // Invalid index, ignore
+            }
+            // Redirect after processing
+            response.sendRedirect("index.jsp");
+            return;
+        }
         
         // Handle clear tasks
         String clearTasks = request.getParameter("clear");
         if (clearTasks != null && clearTasks.equals("true")) {
             tasks.clear();
             session.setAttribute("tasks", tasks);
+            // Redirect after processing
+            response.sendRedirect("index.jsp");
+            return;
         }
         %>
         
@@ -103,8 +151,19 @@ if (newTask != null && !newTask.trim().isEmpty()) {
         
         <% if (!tasks.isEmpty()) { %>
             <ul>
-                <% for (String task : tasks) { %>
-                    <li><%= task %></li>
+                <% for (int i = 0; i < tasks.size(); i++) { 
+                    Map<String, Object> task = tasks.get(i);
+                    boolean completed = (Boolean)task.get("completed");
+                    String taskText = (String)task.get("text");
+                %>
+                    <li>
+                        <span class="task-text <%= completed ? "completed" : "" %>"><%= taskText %></span>
+                        <div class="task-actions">
+                            <a href="index.jsp?toggle=<%= i %>" class="toggle-btn">
+                                <%= completed ? "Undo" : "Complete" %>
+                            </a>
+                        </div>
+                    </li>
                 <% } %>
             </ul>
             <p style="text-align: center;">
