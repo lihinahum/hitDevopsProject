@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>HIT DevOps Task Manager - updated!</title>
+    <title>HIT DevOps Task Manager</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,7 +93,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>HIT DevOps Task Manager</h1>
+        <h1>HIT DevOps Task Manager - UPDATED!</h1>
         
         <%
         // Initialize the tasks list if it doesn't exist
