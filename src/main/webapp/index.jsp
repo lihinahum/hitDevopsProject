@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>HIT DevOps Task Manager</title>
+    <title>HIT DevOps Task Manager - updated!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
