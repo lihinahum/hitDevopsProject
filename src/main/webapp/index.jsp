@@ -93,7 +93,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>HIT DevOps Task Manager - another try</h1>
+        <h1>HIT DevOps Task Manager</h1>
         
         <%
         // Initialize the tasks list if it doesn't exist
