@@ -15,6 +15,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gatling.version>3.9.5</gatling.version>
+        <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
     </properties>
     
     <dependencies>
@@ -30,6 +32,12 @@
             <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     
     <build>
@@ -39,6 +47,30 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
+            </plugin>
+            
+            <!-- Add Gatling Maven Plugin -->
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling-maven-plugin.version}</version>
+                <configuration>
+                    <!-- The simulation to run -->
+                    <simulationClass>com.hit.devops.StressTestSimulation</simulationClass>
+                    <!-- Duration of the stress test in seconds (3-4 minutes = 180-240 seconds) -->
+                    <runTime>210</runTime>
+                    <includes>
+                        <include>com.hit.devops.StressTestSimulation</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>stress-test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
