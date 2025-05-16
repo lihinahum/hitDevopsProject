@@ -17,8 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gatling.version>3.9.5</gatling.version>
         <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
-        <!-- Default simulation class if none specified -->
-        <gatling.simulationClass>simulations.FiveMinuteLoadTest</gatling.simulationClass>
+        <scala.version>2.13.10</scala.version>
+        <scala.binary.version>2.13</scala.binary.version>
     </properties>
     
     <dependencies>
@@ -34,14 +34,36 @@
             <version>2.3.3</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- Scala -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Gatling -->
         <dependency>
             <groupId>io.gatling.highcharts</groupId>
             <artifactId>gatling-charts-highcharts</artifactId>
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-app</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-recorder</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
         
-        <!-- Gatling dependencies -->
+        <!-- For Java API compatibility -->
         <dependency>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-core-java</artifactId>
@@ -82,14 +104,34 @@
                 </configuration>
             </plugin>
             
+            <!-- Scala Maven Plugin -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>4.8.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                </configuration>
+            </plugin>
+            
             <!-- Gatling Maven Plugin -->
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-maven-plugin.version}</version>
                 <configuration>
-                    <!-- Uses the property which can be overridden via command line -->
-                    <simulationClass>${gatling.simulationClass}</simulationClass>
+                    <simulationsFolder>src/test/scala</simulationsFolder>
+                    <includes>
+                        <include>simulations.*</include>
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>

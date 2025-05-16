@@ -3,7 +3,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class FiveMinuteLoadTest extends Simulation {
+class LoadTest extends Simulation {
   val httpProtocol = http
     .baseUrl("http://localhost:8080/LihiMayaDorAndGalApp")
     .acceptHeader("text/html")
