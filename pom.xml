@@ -17,6 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gatling.version>3.9.5</gatling.version>
         <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
+        <!-- Default simulation class if none specified -->
+        <gatling.simulationClass>simulations.FiveMinuteLoadTest</gatling.simulationClass>
     </properties>
     
     <dependencies>
@@ -39,7 +41,7 @@
             <scope>test</scope>
         </dependency>
         
-        <!-- Add these Java-specific Gatling dependencies -->
+        <!-- Gatling dependencies -->
         <dependency>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-core-java</artifactId>
@@ -69,7 +71,7 @@
                 <version>3.3.2</version>
             </plugin>
             
-            <!-- Add Maven Compiler Plugin -->
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -86,21 +88,9 @@
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-maven-plugin.version}</version>
                 <configuration>
-                    <!-- The simulation to run -->
-                    <simulationClass>com.hit.devops.StressTestSimulation</simulationClass>
-                    <!-- Remove the runTime parameter as it's not supported -->
-                    <includes>
-                        <include>com.hit.devops.StressTestSimulation</include>
-                    </includes>
+                    <!-- Uses the property which can be overridden via command line -->
+                    <simulationClass>${gatling.simulationClass}</simulationClass>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>stress-test</id>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
