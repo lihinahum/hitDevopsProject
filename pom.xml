@@ -82,6 +82,14 @@
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- Add Gatling Java API for Java simulations -->
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-javaapi</artifactId>
+            <version>${gatling.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     
     <build>
@@ -128,8 +136,10 @@
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-maven-plugin.version}</version>
                 <configuration>
-                    <simulationsFolder>src/test/scala</simulationsFolder>
+                    <!-- Update to include both Scala and Java simulations -->
+                    <simulationsFolder>src/test</simulationsFolder>
                     <includes>
+                        <include>**/*Test.java</include>
                         <include>simulations.*</include>
                     </includes>
                 </configuration>
