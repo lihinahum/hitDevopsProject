@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
@@ -15,9 +16,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gatling.version>3.9.5</gatling.version>
-        <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
-        <scala.version>2.13.10</scala.version>
+        <gatling.version>3.10.3</gatling.version>
+        <gatling-maven-plugin.version>4.6.0</gatling-maven-plugin.version>
+        <scala.version>2.13.12</scala.version>
         <scala.binary.version>2.13</scala.binary.version>
     </properties>
     
@@ -63,7 +64,7 @@
             <scope>test</scope>
         </dependency>
         
-        <!-- For Java API compatibility -->
+        <!-- For Java API -->
         <dependency>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-core-java</artifactId>
@@ -82,8 +83,6 @@
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
-        
-        <!-- Add Gatling Java API for Java simulations -->
         <dependency>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-javaapi</artifactId>
@@ -136,7 +135,6 @@
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-maven-plugin.version}</version>
                 <configuration>
-                    <!-- Update to include both Scala and Java simulations -->
                     <simulationsFolder>src/test</simulationsFolder>
                     <includes>
                         <include>**/*Test.java</include>
