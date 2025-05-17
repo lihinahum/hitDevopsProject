@@ -113,7 +113,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["b10f24a4-cab3-4732-a7be-5602df1816e8"]
   }],
   "urls": ["http://localhost:8080/LihiMayaDorAndGalApp/"],
   "plugins": []
