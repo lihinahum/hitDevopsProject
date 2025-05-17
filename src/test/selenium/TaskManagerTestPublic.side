@@ -31,14 +31,14 @@
       "id": "3006462c-23e7-4073-a1ca-b7305922d048",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "xpath=//button[contains(text(), 'Visit') or contains(text(), 'visit')]",
+      "target": "css=button",
       "targets": [],
       "value": "5000"
     }, {
       "id": "999adca6-44ec-4eca-adbb-35289c8531e7",
       "comment": "",
       "command": "click",
-      "target": "xpath=//button[contains(text(), 'Visit') or contains(text(), 'visit')]",
+      "target": "css=button",
       "targets": [],
       "value": ""
     }, {
