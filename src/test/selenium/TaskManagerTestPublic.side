@@ -14,6 +14,55 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "62741e21-f6ed-42a4-974e-b6ec3f18a43e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return document.body.innerText.includes('Visit Share') || document.title.includes('zrok.io');",
+      "targets": [],
+      "value": "isZrokPage"
+    }, {
+      "id": "cf5f42a4-2f00-4fd9-b0ce-3c05ae2f192a",
+      "comment": "",
+      "command": "if",
+      "target": "${isZrokPage}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3006462c-23e7-4073-a1ca-b7305922d048",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//button[contains(text(), 'Visit') or contains(text(), 'visit')]",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "999adca6-44ec-4eca-adbb-35289c8531e7",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(text(), 'Visit') or contains(text(), 'visit')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3c4d2544-d320-4045-8486-6199e2d0e139",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h1",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "49bc154f-15d4-4bd3-8817-213df337689e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f11d10ce-20ab-4407-b97e-3024392265fb",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h1",
+      "targets": [],
+      "value": "10000"
+    }, {
       "id": "c93066d3-4e64-4563-886f-4c5ae6de14e7",
       "comment": "",
       "command": "assertTitle",
