@@ -1,0 +1,120 @@
+{
+  "id": "c34b8e1e-c60e-49af-8837-271f789d59c4",
+  "version": "2.0",
+  "name": "TaskManagerTestPublic2",
+  "url": "https://taskmanagerapp.share.zrok.io/LihiMayaDorAndGalApp/index.jsp",
+  "tests": [{
+    "id": "5493bc5c-06e8-4d3b-8c21-fd52ed708690",
+    "name": "TaskManagerFunctionalityTest",
+    "commands": [{
+      "id": "3c496729-72a1-4f17-95b4-fc77d679a5c4",
+      "comment": "",
+      "command": "open",
+      "target": "https://taskmanagerapp.share.zrok.io/LihiMayaDorAndGalApp/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c93066d3-4e64-4563-886f-4c5ae6de14e7",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "HIT DevOps Task Manager",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a2d2cff-051d-4751-9f32-d903f782165b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b465629-0644-4d18-87d5-4eb638c2d7e7",
+      "comment": "",
+      "command": "click",
+      "target": "name=task",
+      "targets": [
+        ["name=task", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='task']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef39928a-b414-4514-9485-1ae3b2d3a5b1",
+      "comment": "",
+      "command": "type",
+      "target": "name=task",
+      "targets": [
+        ["name=task", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='task']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "take the dog out"
+    }, {
+      "id": "498f0cba-bb7a-425b-8210-2c738fd16414",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add Task')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c5c3003-21aa-41ee-80f2-ebb982220832",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Complete",
+      "targets": [
+        ["linkText=Complete", "linkText"],
+        ["css=.toggle-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Complete')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'index.jsp?toggle=0')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Complete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f1c5226-9b67-44a8-af15-42d00ba69416",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.task-text.completed",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a8bc2d0-1448-47a9-8764-d2d163213b30",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Clear All Tasks",
+      "targets": [
+        ["linkText=Clear All Tasks", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Clear All Tasks')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'index.jsp?clear=true')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clear All Tasks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b762987-a2dc-43cb-b395-ca61bce2cfc2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.empty-list",
+      "targets": [],
+      "value": "No tasks yet. Add one above!"
+    }]
+  }],
+  "suites": [{
+    "id": "d6c70804-4877-47ee-a4e6-14a1f28e517a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5493bc5c-06e8-4d3b-8c21-fd52ed708690"]
+  }],
+  "urls": ["https://taskmanagerapp.share.zrok.io/LihiMayaDorAndGalApp/index.jsp"],
+  "plugins": []
+}
