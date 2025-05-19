@@ -1,0 +1,120 @@
+{
+  "id": "857d636f-97fd-44ef-b4a8-4f257284942f",
+  "version": "2.0",
+  "name": "TaskManagerTestPublic",
+  "url": "https://curvy-ways-wear.loca.lt",
+  "tests": [{
+    "id": "d2ec0dd9-a1eb-408e-b1a4-d1f49fdfc131",
+    "name": "TaskManagerFunctionalityTest",
+    "commands": [{
+      "id": "c81cfca9-5448-4353-9734-864a1e5f1606",
+      "comment": "",
+      "command": "open",
+      "target": "/LihiMayaDorAndGalApp/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d4e801a8-6e1f-402b-bbcf-0e2f60889fa7",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "HIT DevOps Task Manager",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fc01f95-84a6-4f82-88ef-56117b9606b5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40bb1b77-6e8f-4a4a-a3a5-8b9791c0d790",
+      "comment": "",
+      "command": "click",
+      "target": "name=task",
+      "targets": [
+        ["name=task", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='task']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfc089a5-55de-465f-8d8f-85e77f851093",
+      "comment": "",
+      "command": "type",
+      "target": "name=task",
+      "targets": [
+        ["name=task", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='task']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "TAKE THE DOG OUT"
+    }, {
+      "id": "9570c26a-21fc-4a63-bd5f-b5ebb0fd900b",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add Task')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95ed9768-6e96-4212-b26f-b818e13a86af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.toggle-btn",
+      "targets": [
+        ["linkText=Complete", "linkText"],
+        ["css=.toggle-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Complete')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'index.jsp?toggle=0')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Complete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ba425f0-8304-4a25-a324-bf4a718e9a8d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.task-text.completed",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d069a768-d2a2-40c2-8c21-34210c3cd2be",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Clear All Tasks",
+      "targets": [
+        ["linkText=Clear All Tasks", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Clear All Tasks')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'index.jsp?clear=true')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Clear All Tasks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e1bc0f6-4e42-4c98-866b-3fffbf402a69",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.empty-list",
+      "targets": [],
+      "value": "No tasks yet. Add one above!"
+    }]
+  }],
+  "suites": [{
+    "id": "4bb143ae-8293-4a50-bda0-8ee5417a8901",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["d2ec0dd9-a1eb-408e-b1a4-d1f49fdfc131"]
+  }],
+  "urls": ["https://curvy-ways-wear.loca.lt/"],
+  "plugins": []
+}
