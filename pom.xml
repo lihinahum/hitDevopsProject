@@ -97,16 +97,6 @@
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
-        
-        <!-- Remove the problematic dependency -->
-        <!-- 
-        <dependency>
-            <groupId>io.gatling</groupId>
-            <artifactId>gatling-javaapi</artifactId>
-            <version>${gatling.version}</version>
-            <scope>test</scope>
-        </dependency>
-        -->
     </dependencies>
     
     <build>
