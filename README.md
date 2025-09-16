@@ -1,4 +1,4 @@
-# hitDevopsProject
+# DevOps Project - Jenkins CI/CD Pipeline
 
 ## Project Summary
 A simple Task Manager web app (Java/JSP on Tomcat) with a complete CI/CD pipeline in Jenkins.  
