@@ -8,6 +8,7 @@ This repo includes the Gatling simulations and screenshots for review.
 ## CI/CD Pipeline (Jenkins)
 1) **Build & Deploy**  
    Checks out from GitHub, packages and deploys to Tomcat under `/TaskManagerApp`, and reloads if needed- delivering a fresh version at `http://localhost:8080/TaskManagerApp`.
+
    <img width="524" height="510" alt="image" src="https://github.com/user-attachments/assets/c14160f8-86c1-4932-b0bc-c3db428682bb" />
    <img width="489" height="583" alt="image" src="https://github.com/user-attachments/assets/78066bde-a3ed-49c5-81ab-9256d80276bc" />
 
