@@ -2,15 +2,15 @@
   "id": "f5962513-de05-4b90-a3f0-e7c2bcde2158",
   "version": "2.0",
   "name": "TaskManagerTest",
-  "url": "http://localhost:8080/LihiMayaDorAndGalApp/",
+  "url": "http://localhost:8080/TaskManagerApp/",
   "tests": [{
     "id": "b10f24a4-cab3-4732-a7be-5602df1816e8",
     "name": "TaskManagerFunctionalityTest",
     "commands": [{
-      "id": "197dd1be-d685-4544-83dd-2fdea1258a89",
+      "id": "135d9850-b544-4801-a777-d43d74e05f58",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8080/LihiMayaDorAndGalApp/",
+      "target": "http://localhost:8080/TaskManagerApp/",
       "targets": [],
       "value": ""
     }, {
@@ -115,6 +115,6 @@
     "timeout": 300,
     "tests": ["b10f24a4-cab3-4732-a7be-5602df1816e8"]
   }],
-  "urls": ["http://localhost:8080/LihiMayaDorAndGalApp/"],
+  "urls": ["http://localhost:8080/LihiMayaDorAndGalApp/", "http://localhost:8080/TaskManagerApp/"],
   "plugins": []
 }
